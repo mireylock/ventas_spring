@@ -53,7 +53,7 @@
             <!-- dependencia para utilizar acceso a base de datos
             con estilo de sql directo sobre jdbc (JdbcTemplate) -->
             <!-- Excluimos el Connection Pool de jdbc de tomcat,
-            para usar el Hikari Connection Pool más veloz
+            para usar el Hikari: el Connection Pool más veloz
             https://github.com/brettwooldridge/HikariCP-->
             <exclusions>
                 <exclusion>

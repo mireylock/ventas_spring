@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClienteService {
 	
-	private ClienteDAO clienteDAO;
+	private ClienteDAO clienteDAO; //se inyecta aquí lo insstanciado en el autowired
 	
 	//Se utiliza inyección automática por constructor del framework Spring.
 	//Por tanto, se puede omitir la anotación Autowired

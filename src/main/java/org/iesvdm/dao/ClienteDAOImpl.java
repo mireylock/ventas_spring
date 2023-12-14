@@ -17,13 +17,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 //Un Repository es un componente y a su vez un estereotipo de Spring 
 //que forma parte de la ‘capa de persistencia’.
+//Componente para el framework de Spring con el rol de repositorio que da acceso a bbdd (tiene código que almacena en bbdd)
 @Repository
 public class ClienteDAOImpl implements ClienteDAO {
 
 	 //Plantilla jdbc inyectada automáticamente por el framework Spring, gracias a la anotación @Autowired.
+	//Gracias a la dependencia de JDBC API, el autowired instancia (no hace falta hacer new...) un jdbc template y lo deja en el contexto
+	//Se implementa en clienteDAO, donde en el constructor se instancia el clienteDAO y se le inyecta la jdbc
 	 @Autowired
 	 private JdbcTemplate jdbcTemplate;
-	
+
+	/*En vez de @autowired
+	private JdbcTemplate jdbcTemplate, se puede poner el atributo y el constructor
+	private JdbcTemplate;
+	public ClienteDaoImpl(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+	*/
+
 	/**
 	 * Inserta en base de datos el nuevo Cliente, actualizando el id en el bean Cliente.
 	 */
@@ -115,7 +126,9 @@ public class ClienteDAOImpl implements ClienteDAO {
 	 */
 	@Override
 	public void update(Cliente cliente) {
-		
+
+		//Si nos metemos en este update, tiene el var args (...) y por eso puedes poner en orden cada uno.
+		//Además, hay una anotación @nullable de Spring, que significa que puede estar nulo. Es como un aviso para que se espere el framework.
 		int rows = jdbcTemplate.update("""
 										UPDATE cliente SET 
 														nombre = ?, 
