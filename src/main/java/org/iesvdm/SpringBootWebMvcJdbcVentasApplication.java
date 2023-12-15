@@ -13,14 +13,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootApplication
-public class SpringBootWebMvcJdbcVentasApplication implements CommandLineRunner{
+public class SpringBootWebMvcJdbcVentasApplication implements CommandLineRunner{//se ejecuta siempre que inicia la aplicación
 
 	@Autowired
 	private ClienteDAO clienteDAO;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootWebMvcJdbcVentasApplication.class, args);
-		
+		//Cuando haces run, se puede ver la bbdd en: http://localhost:8080/clientes porque tenemos un html
 	}
 	
 	@Override

@@ -33,6 +33,9 @@ public class ClienteDAOImpl implements ClienteDAO {
 	public ClienteDaoImpl(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+	Esto es porque si una de las entradas del constructor es susceptible de ser un controlador,
+	el framework lo interpreta directamente.
+	Es silencioso porque no lleva anotación @Autowired.
 	*/
 
 	/**

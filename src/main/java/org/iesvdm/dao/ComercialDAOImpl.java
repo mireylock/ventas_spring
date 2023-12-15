@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Repository
 //Utilizo lombok para generar el constructor
-@AllArgsConstructor
+@AllArgsConstructor //Esto está  hecho con lombok en vez de @Autowired o silencioso con constructor
 public class ComercialDAOImpl implements ComercialDAO {
 
 	//JdbcTemplate se inyecta por el constructor de la clase automáticamente
@@ -26,7 +26,10 @@ public class ComercialDAOImpl implements ComercialDAO {
 	@Override
 	public void create(Comercial cliente) {
 		// TODO Auto-generated method stub
-
+		String sqlInsert = """
+    					INSERT INTO comercial (nombre, apellido1, apellido2, comision)
+    					VALUES (?, ?, ?, ?)
+						""";
 	}
 
 	@Override
