@@ -43,7 +43,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 	 */
 	@Override	
 	public synchronized void create(Cliente cliente) {
-		
+		//synchronized es que espera a que se termine un hilo para ejecutar el siguiente.
 							//Desde java15+ se tiene la triple quote """ para bloques de texto como cadenas.
 		String sqlInsert = """
 							INSERT INTO cliente (nombre, apellido1, apellido2, ciudad, categoría) 
